@@ -1,37 +1,23 @@
+
 <div class="card bg-light border-0 offreEmploi">
     <div class=" card-header border-0">
         <span class="offreTitre"><h6 class="text-center ">Nouvelles Offres d'Emploi <i class="fa fa-file-pdf-o"></i></h6></span>
     </div>
     <ul class="list-group">
-        <li class="list-group-item">
-            <a href="#"><b>Titre Offre</b> <br>
-                <span>Exp:30/12/19 - Categorie : Services</span>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="#"><b>Titre Offre</b> <br>
-                <span>Exp:30/12/19 - Categorie : Services</span>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="#"><b>Titre Offre</b> <br>
-                <span>Exp:30/12/19 - Categorie : Services</span>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="#"><b>Titre Offre</b> <br>
-                <span>Exp:30/12/19 - Categorie : Services</span>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="#"><b>Titre Offre</b> <br>
-                <span>Exp:30/12/19 - Categorie : Services</span>
-            </a>
+    <?php
+    $offres = $db->query("SELECT * FROM offre_site where DATE_EXPIRATION>=CURDATE()  ORDER BY DATE_EXPIRATION")->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($offres as $offre) {
+       
+?>
+       
+        <li class="list-group-item text-capitalize">
+                <p class="my-1"><b><?php echo $offre['OFFRE_SITE'] ?></b></p>
+                <span>Expire le : <?php echo $offre['DATE_EXPIRATION'] ?></span>
+           
         </li>
     </ul>
-    <div class="card-footer text-center">
-        <a href="#" class="text-center">
-            <a class="btn btn-primary text-white btn-block">Voir plus d'offres..</a>
-        </a>
-    </div>
+<?php
+    }
+?>
+
 </div>

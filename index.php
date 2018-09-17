@@ -123,6 +123,7 @@ if (isset($_SESSION['ID_CND'])) {
                     ?>
                 </div>
                 <!--Actualite-->
+                
                 <div class="col-12 col-md-4 col-sm-12">
                     <div class="card bg-light border-0 actualite">
                         <div class=" card-header">
@@ -130,20 +131,25 @@ if (isset($_SESSION['ID_CND'])) {
                                             class="fa fa-newspaper-o"></i></h6></span>
                         </div>
                         <div class="card-body">
-                            <div class="card">
-                                <img src="img/cr_etudiant.jpg" alt="card image" class="card-img-top">
+                        <?php
+                        $acts = $db->query("SELECT * FROM actualite  ORDER BY DATE_ECRIRE_ACT")->fetchAll(PDO::FETCH_ASSOC);
+                        
+                        foreach ($acts as $act) {
+       
+                        ?>
+                        <div class="card">
+                                <img src="./admin/php/actualite/<?php echo $act['PATH_IMG_ACT']?>" alt="card image" class="card-img-top">
                                 <div class="card-body">
-                                    <h6 class="card-title"><b>Titre Actualite</b></h6>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+                                    <h6 class="card-title"><b><?php echo $act['LIB_ACT']?></b></h6>
+                                    <p class="card-text"> <?php echo $act['DESC_ACT']?> </p>
                                 </div>
-                            </div>
-                            <div class="card mt-4">
-                                <div class="card-body">
-                                    <h6 class="card-title"><b>Titre Actualite</b></h6>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
-                                </div>
-                                <img src="img/cr_etudiant.jpg" alt="card image" class="card-img-bottom">
-                            </div>
+                        </div>
+                            
+                        <?php
+                            }
+                        ?>
+                            
+                            
                         </div>
                     </div>
                 </div>

@@ -22,6 +22,24 @@ function connexionCandidat(){
 
 }
 
+function connexionCandidatAux(){
+    var obj= new FormData(document.getElementById("connexionCandidat"));
+    $.ajax({
+        type : 'POST',
+        url : 'php/connexionCandidat.php',
+        data : obj,
+        cache : false,
+        dataType : 'json',
+        processData: false,
+        contentType: false,
+        success : redirigerCnd,
+        error : function () {
+            alert("Echec de Connxion !");
+        }
+    });
+
+}
+
 function connexionEntreprise(){
     var obj= new FormData(document.getElementById("FormConnexionEntreprise"));
     $.ajax({
@@ -38,6 +56,24 @@ function connexionEntreprise(){
             setTimeout(function () {
                 $('#reponseConEnt').html("");
             }, 3000);
+        }
+    });
+
+}
+
+function connexionEntrepriseAux(){
+    var obj= new FormData(document.getElementById("connexionEntreprise"));
+    $.ajax({
+        type : 'POST',
+        url : 'php/connexionEntreprise.php',
+        data : obj,
+        cache : false,
+        dataType : 'json',
+        processData: false,
+        contentType: false,
+        success : redirigerEnt,
+        error : function () {
+            alert("Echec de Connxion !");
         }
     });
 
@@ -79,6 +115,16 @@ $(document).ready(
     $("#FormConnexionEntreprise").submit( function (e) {
         e.preventDefault();
         connexionEntreprise();
+
+    }),
+    $("#connexionCandidat").submit( function (e) {
+        e.preventDefault();
+        connexionCandidatAux();
+
+    }),
+    $("#connexionEntreprise").submit( function (e) {
+        e.preventDefault();
+        connexionEntrepriseAux();
 
     })
 

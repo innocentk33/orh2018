@@ -127,7 +127,7 @@ $contrat = $db->query("SELECT * FROM contrat ORDER BY LIB_CONTRAT")->fetchAll(PD
                             <p class="card-text">Pour acceder a toutes les fonctionalités de notre site trouver des
                                 offres</p>
                             <b class="card-text">Renseignez vos information</b>
-                            <form method="post" enctype="multipart/form-data" action="php/connexionCandidat.php">
+                            <form method="post" enctype="multipart/form-data" id="connexionCandidat">
                                 <div class="form-group">
                                     <label for="emailConnexionCnd">Email de connexion Candidat</label>
                                     <input type="email" class="form-control" id="emailConnexionCnd" name="email"

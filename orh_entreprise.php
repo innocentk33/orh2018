@@ -111,15 +111,15 @@ $sect_act = $db->query("SELECT * FROM secteur_act ORDER BY LIB_SECT")->fetchAll(
                             <p class="card-text">Pour acceder a toutes les fonctionalités de notre site deposez vos annonces
                                 et recruter des personnes</p>
                             <p class="card-text">Renseignez vos information</p>
-                            <form method="post" enctype="multipart/form-data" action="php/connexionEntreprise.php">
+                            <form method="post" enctype="multipart/form-data" id="connexionEntreprise">
                                 <div class="form-group">
                                     <label for="emailConnexionE">Email de connexion entreprise</label>
-                                    <input type="email" class="form-control" id="emailConnexionE" name="emailConexionE"
+                                    <input type="email" class="form-control" id="emailConnexionE" name="email"
                                            placeholder="Entrer email entreprise">
                                 </div>
                                 <div class="form-group">
                                     <label for="mdpConnexionE">Mot de Passe</label>
-                                    <input type="password" class="form-control" id="mdpConnexionE"
+                                    <input type="password" class="form-control" name="mdp"
                                            placeholder="Mot de Passe">
                                 </div>
                                 <button type="submit" id="validerConnexionE" name="validerConnexionE"
