@@ -123,7 +123,6 @@ if (isset($_SESSION['ID_CND'])) {
                     ?>
                 </div>
                 <!--Actualite-->
-                
                 <div class="col-12 col-md-4 col-sm-12">
                     <div class="card bg-light border-0 actualite">
                         <div class=" card-header">
